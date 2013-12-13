@@ -111,8 +111,8 @@ With prefix arguement select `dirtree-buffer'"
     ;; (setq win (get-buffer-window dirtree-buffer))
     (unless win
       ;;(setq win (get-buffer-window dirtree-buffer))
-      (setq win (apply 'windata-display-buffer dirtree-buffer dirtree-windata))
-      (select-window win))
+      (setq win (apply 'windata-display-buffer dirtree-buffer dirtree-windata)))
+    (set-window-dedicated-p win 1)
     (with-selected-window win
       (unless (widget-get tree :open)
         (widget-apply-action tree))
